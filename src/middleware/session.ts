@@ -4,7 +4,6 @@ import { verifyToken } from "../utils/jwt.handle";
 const checkJwt = (req: Request, res: Response, next: NextFunction) => {
   try {
     const jwtByUser = req.headers.authorization || "";
-    // console.log(jwtByUser);
     const jwt = jwtByUser.split(" ").pop();
     const sessionOk = verifyToken(`${jwt}`);
 
@@ -12,7 +11,6 @@ const checkJwt = (req: Request, res: Response, next: NextFunction) => {
       res.status(401);
       res.json({ message: "INVALID TOKEN" });
     } else {
-      // req.user = sessionOk;
       next();
     }
   } catch (e) {
