@@ -75,7 +75,7 @@ const loginUser = async ({ body }: Request, res: Response) => {
           maxAge: 30 * 60 * 60 * 24,
           sameSite: varSite,
           path: "/",
-          httpOnly: process.env.NODE_ENVIROMENT === "production",
+          // httpOnly: process.env.NODE_ENVIROMENT === "production",
           secure: process.env.NODE_ENVIROMENT === "production",
         });
 
@@ -83,7 +83,7 @@ const loginUser = async ({ body }: Request, res: Response) => {
           maxAge: 30 * 60 * 60 * 24,
           sameSite: varSite,
           path: "/",
-          httpOnly: process.env.NODE_ENVIROMENT === "production",
+          // httpOnly: process.env.NODE_ENVIROMENT === "production",
           secure: process.env.NODE_ENVIROMENT === "production",
         });
       }
