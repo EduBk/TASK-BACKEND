@@ -8,17 +8,13 @@ import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
 import swaggerSetup from "./docs/swagger";
 import cookieParser from "cookie-parser";
+import { corsOptions } from "./utils/cors.handle";
 
 const app = express();
 const base_url = process.env.BASE_URL as string;
 
 app.use(morgan("dev"));
-app.use(
-    cors({
-      origin: true,
-      credentials: true,
-    })
-  );
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
