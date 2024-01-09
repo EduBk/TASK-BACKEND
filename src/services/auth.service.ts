@@ -73,17 +73,17 @@ const loginUser = async ({ body }: Request, res: Response) => {
       if (token) {
         res.cookie(cookieName, token, {
           maxAge: 24 * 60 * 60 * 7, // 7 DIAS
-          sameSite: "none",
           // path: "/login",
           // httpOnly: process.env.NODE_ENVIROMENT === "production",
-          secure: true,
+          sameSite: varSite,
+          secure: process.env.NODE_ENVIROMENT === "production",
         });
 
         res.cookie("User", JSON.stringify(userWithoutPass), {
           maxAge: 24 * 60 * 60 * 7, // 7 DIAS
-          sameSite: varSite,
           // path: "/",
-          httpOnly: process.env.NODE_ENVIROMENT === "production",
+          // httpOnly: process.env.NODE_ENVIROMENT === "production",
+          sameSite: varSite,
           secure: process.env.NODE_ENVIROMENT === "production",
         });
       }
