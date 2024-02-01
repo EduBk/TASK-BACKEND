@@ -75,8 +75,8 @@ const loginUser = async ({ body }: Request, res: Response) => {
           maxAge: 24 * 60 * 60 * 7, // 7 DIAS
           path: "/",
           httpOnly: process.env.NODE_ENVIROMENT === "production",
-          sameSite: "strict",
-          secure: true,
+          sameSite: varSite,
+          secure: process.env.NODE_ENVIROMENT === "production",
         });
       }
 
