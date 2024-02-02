@@ -78,7 +78,7 @@ const loginUser = async ({ body }: Request, res: Response) => {
           maxAge: expirationTime * 1000,
           domain: process.env.NODE_DOMAIN,
           path: "/",
-          httpOnly: process.env.NODE_ENVIROMENT === "production",
+          // httpOnly: process.env.NODE_ENVIROMENT === "production",
           sameSite: varSite,
           secure: process.env.NODE_ENVIROMENT === "production",
         });
