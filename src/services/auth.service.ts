@@ -71,11 +71,14 @@ const loginUser = async ({ body }: Request, res: Response) => {
       const varSite = process.env.NODE_SAMESITE === "lax" ? "lax" : "none";
 
       if (token) {
+        //! Ajustamos el tiempo a 7 dias en segundos
+        const expirationTime = 24 * 60 * 60 * 7;
+
         res.cookie(cookieName, token, {
-          maxAge: 24 * 60 * 60 * 7, // 7 DIAS
+          maxAge: expirationTime * 1000,
           domain: process.env.NODE_DOMAIN,
           path: "/",
-          // httpOnly: process.env.NODE_ENVIROMENT === "production",
+          httpOnly: process.env.NODE_ENVIROMENT === "production",
           sameSite: varSite,
           secure: process.env.NODE_ENVIROMENT === "production",
         });
