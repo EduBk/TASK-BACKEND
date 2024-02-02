@@ -73,6 +73,7 @@ const loginUser = async ({ body }: Request, res: Response) => {
       if (token) {
         res.cookie(cookieName, token, {
           maxAge: 24 * 60 * 60 * 7, // 7 DIAS
+          domain: process.env.NODE_DOMAIN,
           path: "/",
           // httpOnly: process.env.NODE_ENVIROMENT === "production",
           sameSite: varSite,
