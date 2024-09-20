@@ -79,7 +79,7 @@ const loginUser = async ({ body }: Request, res: Response) => {
           domain: process.env.NODE_DOMAIN,
           path: "/",
           httpOnly: process.env.NODE_ENVIROMENT === "production",
-          sameSite: process.env.NODE_ENVIROMENT === "production" ? "lax" : "lax",
+          sameSite: process.env.NODE_ENVIROMENT === "production" ? "none" : "lax",
           secure: process.env.NODE_ENVIROMENT === "production",
         });
       }
