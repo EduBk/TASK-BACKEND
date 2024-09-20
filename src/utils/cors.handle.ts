@@ -7,6 +7,7 @@ const whiteList = [base_url, "http://localhost:3000"];
 const corsOptions = {
   origin: function (origin: any, callback: any) {
     let corsPass = true;
+    console.log(origin)
     if (whiteList.indexOf(origin) !== -1) {
       corsPass = true;
     } else {
