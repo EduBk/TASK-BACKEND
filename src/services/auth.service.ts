@@ -76,10 +76,10 @@ const loginUser = async ({ body }: Request, res: Response) => {
 
         res.cookie(cookieName, token, {
           maxAge: expirationTime * 1000,
-          domain: process.env.NODE_DOMAIN,
+          domain: process.env.BASE_URL,
           path: "/",
-          httpOnly: process.env.NODE_ENVIROMENT === "production",
-          sameSite: process.env.NODE_ENVIROMENT === "production" ? "none" : "lax",
+          // httpOnly: process.env.NODE_ENVIROMENT === "production",
+          sameSite: process.env.NODE_ENVIROMENT === "production" ? "lax" : "lax",
           secure: process.env.NODE_ENVIROMENT === "production",
         });
       }
