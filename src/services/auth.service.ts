@@ -68,7 +68,6 @@ const loginUser = async ({ body }: Request, res: Response) => {
       const token = generateToken(JSON.stringify(tokenPayload));
       const userWithoutPass = exclude(userExist, ["password"]);
       const cookieName = process.env.COOKIE_NAME as string;
-      const varSite = process.env.NODE_SAMESITE === "lax" ? "lax" : "none";
 
       if (token) {
         //! Ajustamos el tiempo a 7 dias en segundos
